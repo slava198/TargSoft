@@ -8,8 +8,6 @@ import java.util.List;
 
 
 public interface TrnRepo extends JpaRepository<Trn, String> {
-    List<Trn> findAll();
-
     boolean existsByRelatedTransaction(String id);
 
     List<Trn> getAllByDateAfterAndDateBeforeAndMerchant(LocalDateTime after, LocalDateTime before, String merchant);
