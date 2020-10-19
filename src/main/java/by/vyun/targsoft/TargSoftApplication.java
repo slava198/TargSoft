@@ -1,19 +1,21 @@
 package by.vyun.targsoft;
 
-import by.vyun.targsoft.service.TransactionService;
+import by.vyun.targsoft.service.DatabaseService;
+//import by.vyun.targsoft.service.TrnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 
 @SpringBootApplication
 public class TargSoftApplication implements CommandLineRunner {
 
+	//@Autowired
+	//private TrnService trnService;
 	@Autowired
-	private TransactionService transactionService;
+	private DatabaseService dbService;
+
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(TargSoftApplication.class);
@@ -26,8 +28,8 @@ public class TargSoftApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		System.out.println(transactionService.showData());
+		dbService.dbLoad();
+		//System.out.println(trnService.showData());
 
 	}
 }
